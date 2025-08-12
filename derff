@@ -1,0 +1,22 @@
+function script.drawUI()
+    local car = ac.getCar(0)
+    if not car then return end
+
+    local x = 50
+    local y = 200
+
+    -- Color en formato rgbm(r,g,b,m), con valores entre 0 y 1
+    local green = rgbm(0, 1, 0, 1)
+    local yellow = rgbm(1, 1, 0, 1)
+    local red = rgbm(1, 0, 0, 1)
+
+    -- El texto se dibuja con la fuente predeterminada
+    render.setColor(green)
+    render.drawText(x, y, "✅ Script funcionando!")
+
+    render.setColor(yellow)
+    render.drawText(x, y + 30, string.format("Velocidad: %.1f km/h", car.speedKmh))
+
+    render.setColor(red)
+    render.drawText(x, y + 60, string.format("RPM: %.0f", car.rpm))
+end
