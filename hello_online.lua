@@ -1,18 +1,16 @@
--- Script básico para Assetto Corsa CSP Online
--- Muestra mensaje + datos en vivo del auto
+-- HUD simple para Assetto Corsa con CSP
+-- Muestra texto directamente en la pantalla del jugador
 
-function script.update(dt)
-    local car = ac.getCar(0) -- 0 = tu propio auto
+function script.drawUI()
+    local car = ac.getCar(0)
+    if not car then return end
 
-    if car then
-        local velocidad = string.format("%.1f km/h", car.speedKmh)
-        local rpm = string.format("%.0f RPM", car.rpm)
+    ui.beginTransparentWindow("hud_test", vec2(50, 200), vec2(300, 120))
+    ui.setWindowFontScale(1.4)  -- tamaño de letra
 
-        -- Muestra cada línea en pantalla
-        ac.debug("✅ Script funcionando!", 0, 0, 0xFF00FF00) -- Verde
-        ac.debug("Velocidad: " .. velocidad, 1, 0, 0xFFFFFF00) -- Amarillo
-        ac.debug("RPM: " .. rpm, 2, 0, 0xFFFF0000) -- Rojo
-    else
-        ac.debug("Esperando datos del coche...", 0, 0, 0xFFFF0000)
-    end
+    ui.textColored("✅ Script funcionando!", rgbm(0, 1, 0, 1)) -- verde
+    ui.textColored(string.format("Velocidad: %.1f km/h", car.speedKmh), rgbm(1, 1, 0, 1)) -- amarillo
+    ui.textColored(string.format("RPM: %.0f", car.rpm), rgbm(1, 0, 0, 1)) -- rojo
+
+    ui.endWindow()
 end
