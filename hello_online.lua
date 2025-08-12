@@ -1,5 +1,3 @@
-local ac = require("ac")
-local ui = require("ui")
 
 function script.windowMain(dt)
   ui.text('Hello world!')
@@ -19,3 +17,4 @@ end
 function script.update(dt)
   -- called each frame!!
 end
+
