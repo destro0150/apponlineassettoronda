@@ -1,20 +1,6 @@
-
-function script.windowMain(dt)
-  ui.text('Hello world!')
-end
-
--- optional
-function script.windowSettings(dt)
-  -- draw settings ui
-end
-
--- optional 
-function script.Draw3D(dt)
-  -- draw something with the render. functions
-end
-
--- optional, standard available function 
+-- Muestra un texto simple en pantalla para confirmar que el script funciona
+-- Esto se ejecuta en cada frame
 function script.update(dt)
-  -- called each frame!!
+    -- Texto en pantalla (x, y, texto, tamaño, alineación, colorRGBA)
+    ac.debug("¡Script Lua funcionando!", 0, 0, 0xFF00FF00)
 end
-
