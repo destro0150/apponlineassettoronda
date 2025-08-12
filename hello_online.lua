@@ -1,10 +1,21 @@
 local ac = require("ac")
 local ui = require("ui")
 
--- Función que se ejecuta en cada frame para dibujar texto en pantalla
-function draw()
-    ui.drawText(10, 10, "Hola", 1, 1, 1, 1) -- x,y en pixeles, color RGBA blanco
+function script.windowMain(dt)
+  ui.text('Hello world!')
 end
 
--- Se registra la función draw para que se ejecute siempre
-ac.addRenderCallback(draw)
+-- optional
+function script.windowSettings(dt)
+  -- draw settings ui
+end
+
+-- optional 
+function script.Draw3D(dt)
+  -- draw something with the render. functions
+end
+
+-- optional, standard available function 
+function script.update(dt)
+  -- called each frame!!
+end
