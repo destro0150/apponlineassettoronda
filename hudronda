@@ -1,0 +1,16 @@
+-- HUD simple para Assetto Corsa con CSP
+-- Muestra texto directamente en la pantalla del jugador
+
+function script.drawUI()
+    local car = ac.getCar(0)
+    if not car then return end
+
+    ui.beginTransparentWindow("hud_test", vec2(50, 200), vec2(300, 120))
+    ui.setWindowFontScale(1.4)  -- tamaño de letra
+
+    ui.textColored("✅ Script funcionando!", rgbm(0, 1, 0, 1)) -- verde
+    ui.textColored(string.format("Velocidad: %.1f km/h", car.speedKmh), rgbm(1, 1, 0, 1)) -- amarillo
+    ui.textColored(string.format("RPM: %.0f", car.rpm), rgbm(1, 0, 0, 1)) -- rojo
+
+    ui.endWindow()
+end
